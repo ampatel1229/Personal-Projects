@@ -24,6 +24,6 @@ Each project emphasizes a different aspect of data science, including:
 
 ## 📚 Project Acknowledgment
 All project topics, datasets, and problem statements are **credited to _The Data Mine Seminar 10100_ at Purdue University West Lafayette**.  
-These projects were completed for educational purposes and reflect my understanding of applied data science concepts.
+These projects were completed for the course in order for me to learn Data Mining and reflects my understanding of applied data science concepts.
 
 ---
