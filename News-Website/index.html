@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>News Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>NewsToday</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">World</a></li>
+        <li><a href="#">Politics</a></li>
+        <li><a href="#">Business</a></li>
+        <li><a href="#">Technology</a></li>
+        <li><a href="#">Entertainment</a></li>
+        <li><a href="#">Sports</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="top-news">
+      <h2>Top News</h2>
+      <div class="articles">
+        <article>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRaSvP6TKM3HoH583AqllmTxfSSjeuTAHasZ4PzoA4dg&s" alt="F1 Logo">
+          <h3><a href="https://www.reviewjournal.com/sports/motor-sports/formula-1/whats-it-like-to-drive-the-vegas-f1-circuit-ride-with-us-and-find-out-2763448/" target=”_blank”>F1 Opens New Track</a></h3>
+          <p>The FIA have announced that Formula 1 will have another race track to replace the China Track. This new track will be in Las Vegas and will be a street circuit. Is this circuit worth the money? How will the people of Vegas be affected?</p>
+        </article>
+        <article>
+          <img src="Bitcoin.jpg" alt="Bitcoin Image">
+          <h3><a href="https://medium.com/the-catalyst-by-alumnus-capital/cryptocurrency-in-economic-downturns-b118b0a1ad6d?source=collection_home---4------4-----------------------" target=”_blank” >Cryptocurrency in Economic Downturns</a></h3>
+          <p>Cryptocurrency is a very volatile investment. Created in 2009, Cryptocurrency has started to be on the rise again. What should investors know about crypotcurrency before investing in it?</p>
+        </article>
+        <article>
+          <img src="DQ.jpg" alt="Satirical Article">
+          <h3><a href="https://www.vice.com/en/article/bvmd85/dairy-queen-pennsylvania-armed-man-trump" target=”_blank”>Trump Fan in Clown Wig Threatens to Kill All Democrats in a Dairy Queen</a></h3>
+          <p>No Joke. This is real.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="stock-tracker">
+      <h2>Stock Tracker</h2>
+      <ul class="articles"></ul>
+      <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div id="tradingview_4b0f1"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets</span></a> on TradingView</div>
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+  <script type="text/javascript">
+  new TradingView.widget(
+  {
+  "width": 650,
+  "height": 650,
+  "symbol": "SKILLING:NASDAQ",
+  "interval": "D",
+  "timezone": "America/New_York",
+  "theme": "light",
+  "style": "2",
+  "locale": "en",
+  "toolbar_bg": "#f1f3f6",
+  "enable_publishing": false,
+  "allow_symbol_change": true,
+  "container_id": "tradingview_4b0f1"
+}
+  );
+  </script>
+</div>
+<!-- TradingView Widget END -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 News Website</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
+</body>
+</html>
