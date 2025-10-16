@@ -17,7 +17,7 @@ Each project emphasizes a different aspect of data science, including:
 
 ## 💻 Tech Stack
 - **Language:** R  
-- **Libraries:** tidyverse, ggplot2, dplyr, readr, tidyr, lubridate  
+- **Libraries:** tidyverse, ggplot2, dplyr 
 - **Environment:** Jupyter Notebook (used seminar-r)
 
 ---
