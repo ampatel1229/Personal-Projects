@@ -1,4 +1,4 @@
-# 📊 The Data Mine Projects – Purdue University
+# The Data Mine Projects – Purdue University
 
 Welcome to my collection of **Data Mine projects**, developed as part of **The Data Mine Seminar (TDM 10100)** at **Purdue University – West Lafayette**.  
 All projects in this repository are coded entirely in **R**, focusing on data exploration, cleaning, visualization, and insight generation.
