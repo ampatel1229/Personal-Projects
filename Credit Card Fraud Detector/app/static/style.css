@@ -1,0 +1,163 @@
+/*============================================================================
+   CREDIT CARD FRAUD DETECTION - STYLESHEET
+   This CSS file styles the entire web application
+  ============================================================================ */
+
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  /* Makes width/height calculations easier */
+}
+
+/* Style the entire page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  /* Purple gradient background */
+    min-height: 100vh;  /* Minimum height of viewport */
+    padding: 20px;
+}
+
+/* Main container that holds all content */
+.container {
+    max-width: 1200px;  /* Maximum width */
+    margin: 0 auto;  /* Center horizontally */
+    background-color: white;
+    border-radius: 20px;  /* Rounded corners */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);  /* Drop shadow */
+    padding: 40px;
+    animation: fadeIn 0.5s ease-in;  /* Fade in animation */
+}
+
+/* Animation for container appearance */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header styling */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #667eea;
+}
+
+.header h1 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.1em;
+}
+
+/* Info box with instructions */
+.info-box {
+    background-color: #f0f4ff;
+    border-left: 4px solid #667eea;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+.info-box h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.info-box ul {
+    list-style-position: inside;
+    margin-left: 20px;
+    color: #555;
+}
+
+.info-box li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.info-box em {
+    display: block;
+    margin-top: 15px;
+    color: #888;
+    font-size: 0.95em;
+}
+
+/* Alert messages (errors and results) */
+.alert {
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    text-align: center;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Error message styling */
+.alert.error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 2px solid #ef5350;
+}
+
+/* Fraud detection result */
+.alert.fraud {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 3px solid #ef5350;
+}
+
+/* Legitimate transaction result */
+.alert.legitimate {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 3px solid #66bb6a;
+}
+
+.alert h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.probability {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Form sections */
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section h3 {
+    color: #444;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+/* Grid layout for V features */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
