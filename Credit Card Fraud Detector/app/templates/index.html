@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags provide information about the webpage -->
+    <meta charset="UTF-8">  <!-- Character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Makes it mobile-friendly -->
+    <title>Credit Card Fraud Detection</title>
+    
+    <!-- Link to our external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Main container that holds everything -->
+    <div class="container">
+        <!-- Header section -->
+        <div class="header">
+            <h1>🔐 Credit Card Fraud Detection System</h1>
+            <p class="subtitle">Advanced Machine Learning Model • Random Forest Classifier</p>
+        </div>
+
+        <!-- Shows error message if there is one -->
+        {% if error %}
+        <div class="alert error">
+            <strong>⚠️ Error:</strong> {{ error }}
+        </div>
+        {% endif %}
+
+        <!-- Show prediction result if available -->
+        {% if show_result %}
+        <div class="alert {{ result_class }}">
+            <h2>{{ prediction_text }}</h2>
+            <p class="probability">{{ probability_text }}</p>
+        </div>
+        {% endif %}
+
+        <!-- Instructions section -->
+        <div class="info-box">
+            <h3>📋 Instructions</h3>
+            <ul>
+                <li><strong>Time:</strong> Seconds elapsed since the first transaction (0-172792)</li>
+                <li><strong>Amount:</strong> Transaction amount in dollars</li>
+                <li><strong>V1-V28:</strong> PCA-transformed features (usually between -3 and 3)</li>
+            </ul>
+            <p><em>💡 Tip: For testing, use V features between -2 and 2, and amount between 1 and 1000</em></p>
+        </div>
+
+        <!-- The main form for user input -->
+        <form action="/predict" method="post">
+            <!-- method="post" means data is sent securely (not visible in URL) -->
+            <!-- action="/predict" tells where to send the form data -->
+
+            <div class="form-section">
+                <h3>Transaction Time</h3>
+                <!-- 
+                    name="time" - this is the key Flask uses to get the value
+                    step="any" - allows decimal numbers
+                    required - user must fill this field
+                -->
+                <input type="number" name="time" placeholder="e.g., 50000" step="any" required>
+            </div>
+
+            <div class="form-section">
+                <h3>Transaction Amount</h3>
+                <input type="number" name="amount" placeholder="e.g., 150.50" step="any" min="0" required>
+            </div>
+
+            <div class="form-section">
+                <h3>PCA Features (V1-V28)</h3>
+                <div class="features-grid">
+                    {% for i in range(1, 29) %}
+                    <div class="feature-input">
+                        <label for="v{{ i }}">V{{ i }}</label>
+                        <input 
+                            type="number" 
+                            id="v{{ i }}" 
+                            name="v{{ i }}" 
+                            placeholder="0.00" 
+                            step="any" 
+                            required>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="predict-btn">
+                🔍 Analyze Transaction
+            </button>
+        </form>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Built with Flask & Random Forest • Accuracy: ~99.9%</p>
+            <p>⚠️ For educational purposes only</p>
+        </div>
+    </div>
+
+    <!-- validation with JavaScript -->
+    <script>
+        // This runs when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the form element
+            const form = document.querySelector('form');
+            
+            // Add event listener for form submission
+            form.addEventListener('submit', function(e) {
+                // Check if all required fields are filled
+                const inputs = form.querySelectorAll('input[required]');
+                let allFilled = true;
+                
+                inputs.forEach(input => {
+                    if (!input.value) {
+                        allFilled = false;
+                        input.style.borderColor = 'red';
+                    } else {
+                        input.style.borderColor = '#ddd';
+                    }
+                });
+                
+                // If not all filled, prevent form submission
+                if (!allFilled) {
+                    e.preventDefault();
+                    alert('⚠️ Please fill all required fields!');
+                }
+            });
+
+            // Add a button to fill sample data (for testing)
+            const sampleBtn = document.createElement('button');
+            sampleBtn.textContent = '📝 Fill Sample Data';
+            sampleBtn.className = 'sample-btn';
+            sampleBtn.type = 'button';
+            
+            sampleBtn.onclick = function() {
+                document.querySelector('[name="time"]').value = '50000';
+                document.querySelector('[name="amount"]').value = '100.50';
+                
+                // Fill V features with random values between -1 and 1
+                for (let i = 1; i <= 28; i++) {
+                    const randomValue = (Math.random() * 2 - 1).toFixed(4);
+                    document.querySelector(`[name="v${i}"]`).value = randomValue;
+                }
+                
+                alert('Sample data filled! Click "Analyze Transaction" to test.');
+            };
+            
+            // Insert button before the predict button
+            const predictBtn = document.querySelector('.predict-btn');
+            predictBtn.parentNode.insertBefore(sampleBtn, predictBtn);
+        });
+    </script>
+</body>
+</html>
